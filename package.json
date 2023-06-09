@@ -1,0 +1,29 @@
+{
+  "name": "match-friends-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vant/compat": "^1.0.0",
+    "axios": "^1.4.0",
+    "qt": "^0.1.0",
+    "vant": "^4.4.0",
+    "vue": "^3.2.47",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "qs": "^6.11.2",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.2",
+    "vite-plugin-style-import": "1.4.1",
+    "vue-tsc": "^1.4.2"
+  }
+}
