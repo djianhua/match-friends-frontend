@@ -1,6 +1,6 @@
 // 自定义路由
 import Index from "../pages/Index.vue";
-import Team from "../pages/Team.vue";
+import Team from "../pages/TeamPage.vue";
 import User from "../pages/UserPage.vue";
 import SearchPage from "../pages/SearchPage.vue";
 import UserEditPage from "../pages/UserEditPage.vue";
