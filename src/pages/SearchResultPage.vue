@@ -7,7 +7,7 @@
 import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
 
-import {Toast} from "@vant/compat";
+import {Toast} from "vant";
 import myAxios from "../plugins/myAxios.ts";
 import qs from "qs"
 import UserCardList from "../components/UserCardList.vue";

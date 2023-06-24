@@ -17,6 +17,7 @@
 import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import {getCurrentUser} from "../services/user";
+import {Toast} from "vant";
 
 // const user = {
 //   id: 1,
@@ -34,6 +35,12 @@ const user = ref();
 
 onMounted(async () => {
   user.value = await getCurrentUser();
+  if (user.value == null) {
+    Toast.fail("未登录")
+    router.replace({
+      path: "/user/login"
+    })
+  }
 })
 
 const router = useRouter();

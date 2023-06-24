@@ -29,7 +29,7 @@
 import {useRoute, useRouter} from "vue-router";
 import {ref} from "vue";
 import myAxios from "../plugins/myAxios";
-import {Toast} from "@vant/compat";
+import {Toast} from "vant";
 
 const router = useRouter();
 const route = useRoute();

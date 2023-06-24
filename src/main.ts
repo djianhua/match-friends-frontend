@@ -3,8 +3,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import * as VueRouter from 'vue-router';
 import routes from "./config/route";
-import Vant from 'vant';
 import 'vant/lib/index.css'
+import Vant from 'vant';
 
 const app = createApp(App);
 app.use(Vant);
