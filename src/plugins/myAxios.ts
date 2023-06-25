@@ -1,29 +1,35 @@
 import axios, {AxiosInstance} from "axios";
 
-// Set config defaults when creating the instance
+const isDev = process.env.NODE_ENV === 'development';
+
 const myAxios: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    baseURL: isDev ? 'http://localhost:8080/api' : '线上地址',
 });
 
-//携带cookie
-myAxios.defaults.withCredentials = true;
+myAxios.defaults.withCredentials = true; // 配置为true
 
-// 添加请求拦截器
+// Add a request interceptor
 myAxios.interceptors.request.use(function (config) {
-    console.log("我要发送请求了,",config)
+    console.log('我要发请求啦', config)
+    // Do something before request is sent
     return config;
 }, function (error) {
-    // 对请求错误做些什么
+    // Do something with request error
     return Promise.reject(error);
 });
 
-// 添加响应拦截器
+// Add a response interceptor
 myAxios.interceptors.response.use(function (response) {
-    // 对响应数据做点什么
-    console.log("我收到你的响应了,",response)
+    console.log('我收到你的响应啦', response)
+    // 未登录则跳转到登录页
+    if (response?.data?.code === 40100) {
+        const redirectUrl = window.location.href;
+        window.location.href = `/user/login?redirect=${redirectUrl}`;
+    }
+    // Do something with response data
     return response.data;
 }, function (error) {
-    // 对响应错误做点什么
+    // Do something with response error
     return Promise.reject(error);
 });
 
