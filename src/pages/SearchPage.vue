@@ -60,8 +60,23 @@ const originalTagList = [
     children: [
       { text: 'Java', id: 'Java' },
       { text: 'C++', id: 'C++' },
+      {text: '后端', id: '后端'},
+      {text: '前端', id: '前端'},
+      {text: '回家种田', id: '回家种田'},
+      {text: '考研', id: '考研'},
     ],
   },
+  {
+    text: '爱好',
+    children: [
+      {text: '干饭', id: '干饭'},
+      { text: '羽毛球', id: '羽毛球' },
+      { text: '篮球', id: '篮球' },
+      {text: '夜跑', id: '夜跑'},
+      {text: '打游戏', id: '打游戏'},
+      {text: '逛街', id: '逛街'},
+    ],
+  }
 ];
 // 标签列表
 let tagList = ref(originalTagList);

@@ -35,7 +35,7 @@
                     @click="doUpdateTeam(team.id)">更新队伍
         </van-button>
         <!-- 仅加入队伍可见 -->
-        <van-button v-if="team.userId !== currentUser?.id && team.hasJoin" size="small" plain
+        <van-button v-if="team.userId === currentUser?.id || team.hasJoin" size="small" plain
                     @click="doQuitTeam(team.id)">退出队伍
         </van-button>
         <van-button v-if="team.userId === currentUser?.id" size="small" type="danger" plain
@@ -84,6 +84,14 @@ const preJoinTeam = (team: TeamType) => {
   joinTeamId.value = team.id;
   if (team.status === 0) {
     doJoinTeam()
+    // props.teamList.forEach(
+    //     (item:any)=>{
+    //       if(item.id === joinTeamId.value)
+    //       {
+    //         item.hasJoin=true;
+    //       }
+    //     }
+    // )
   } else {
     showPasswordDialog.value = true;
   }
@@ -98,6 +106,14 @@ const doJoinCancel = () => {
  * 加入队伍
  */
 const doJoinTeam = async () => {
+  props.teamList.forEach(
+      (item:any)=>{
+        if(item.id === joinTeamId.value)
+        {
+          item.hasJoin=true;
+        }
+      }
+  )
   if (!joinTeamId.value) {
     return;
   }
@@ -131,6 +147,14 @@ const doUpdateTeam = (id: number) => {
  * @param id
  */
 const doQuitTeam = async (id: number) => {
+  props.teamList.forEach(
+      (item:any)=>{
+        if(item.id === id)
+        {
+          item.hasJoin=false;
+        }
+      }
+  )
   const res = await myAxios.post('/team/quit', {
     teamId: id
   });
